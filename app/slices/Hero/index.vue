@@ -56,16 +56,16 @@ onMounted(() => {
 
 <template>
   <Bounded id="hero">
-    <div class="relative text-center">
+    <div class="relative px-4 text-center sm:px-6">
       <GlideGrid />
-      <h1 class="hero__heading mx-auto max-w-3xl text-balance text-5xl font-medium opacity-0 md:text-7xl">
+      <h1 class="hero__heading mx-auto max-w-3xl text-balance text-4xl font-medium opacity-0 sm:text-5xl md:text-7xl">
         {{ props.hero.title }}
         <span class="text-sky-300">{{ ' ' + props.hero.highlight }}</span>
       </h1>
-      <p class="hero__body mx-auto mt-6 max-w-md text-balance text-gray-300 opacity-0">
+      <p class="hero__body mx-auto mt-6 max-w-xl text-balance text-base text-gray-300 opacity-0 sm:text-lg">
         {{ props.hero.description }}
       </p>
-      <div class="flex flex-wrap gap-8 justify-center">
+      <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
         <NuxtLink
           v-for="cta in props.hero.ctas"
           :key="cta.href"
@@ -78,7 +78,7 @@ onMounted(() => {
           {{ cta.label }}
         </NuxtLink>
       </div>
-      <div class="hero__image glass-container mt-16 w-fit opacity-0">
+      <div class="hero__image glass-container mt-16 w-fit opacity-0 mx-auto">
         <div
           class="hero__glow hero__glow--one absolute left-1/3 top-0 -z-10 h-2/3 w-2/3 bg-sky-700/50 opacity-0 mix-blend-screen blur-3xl filter md:blur-[120px]"
         />
@@ -283,5 +283,44 @@ onMounted(() => {
 
 .dashboard-card__fade + * {
   position: relative;
+}
+
+@media (max-width: 640px) {
+  .dashboard-card {
+    width: min(520px, 100%);
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .dashboard-card__header,
+  .dashboard-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .dashboard-card__status {
+    align-self: stretch;
+    text-align: center;
+  }
+
+  .dashboard-card__list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .dashboard-card__metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card__timeline {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dashboard-card__footer-text {
+    width: 100%;
+  }
 }
 </style>

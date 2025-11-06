@@ -1,5 +1,3 @@
-import { repositoryName } from './slicemachine.config.json';
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   future: {
@@ -10,7 +8,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Glide.ai',
+      title: 'Wadeh AI Automation Agency',
       htmlAttrs: {
         lang: 'en',
       },
@@ -28,33 +26,13 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxt/eslint',
-    '@nuxtjs/prismic',
     '@nuxtjs/tailwindcss',
     '@nuxt/fonts',
     '@nuxt/icon',
-    '@nuxthub/core',
   ],
 
-  prismic: {
-    endpoint: repositoryName,
-    preview: '/api/preview',
-    clientConfig: {
-      routes: [
-        {
-          type: 'case_study',
-          path: '/case-study/:uid',
-        },
-        {
-          type: 'page',
-          path: '/:uid',
-        },
-        {
-          type: 'page',
-          uid: 'home',
-          path: '/',
-        },
-      ]
-    }
+  nitro: {
+    preset: 'vercel',
   },
 
   compatibilityDate: '2025-01-06',

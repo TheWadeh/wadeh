@@ -46,27 +46,27 @@ const isExternal = (href: string) => /^https?:|^mailto:/i.test(href);
 
     <CallToActionSection :section="closingCta" />
 
-    <Bounded id="contact">
-      <div class="glass-container w-full rounded-xl bg-gradient-to-r from-sky-900/40 to-teal-900/30 p-8 text-center md:p-12">
-        <h2 class="text-4xl font-medium text-white md:text-5xl">
+    <Bounded id="contact" class="px-4 sm:px-6">
+      <div class="glass-container w-full rounded-xl bg-gradient-to-r from-sky-900/40 to-teal-900/30 p-6 text-center sm:p-8 md:p-12">
+        <h2 class="text-3xl font-medium text-white sm:text-4xl md:text-5xl">
           Let's build your automation roadmap
         </h2>
-        <p class="mt-4 text-gray-300">
+        <p class="mt-4 text-sm text-gray-300 sm:text-base">
           Reach out and we'll craft an automation plan tailored to your team's priorities.
         </p>
         <div class="mt-6 flex flex-col items-center gap-3 text-gray-200">
-          <a class="text-lg hover:text-sky-300" :href="`mailto:${siteSettings.contactEmail}`">
+          <a class="text-base hover:text-sky-300 sm:text-lg" :href="`mailto:${siteSettings.contactEmail}`">
             {{ siteSettings.contactEmail }}
           </a>
           <span>{{ siteSettings.contactPhone }}</span>
           <span>{{ siteSettings.location }}</span>
         </div>
-        <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm text-sky-100/80">
+        <div class="mt-6 flex flex-wrap justify-center gap-3 text-xs text-sky-100/80 sm:gap-4 sm:text-sm">
           <template v-for="social in siteSettings.socials" :key="social.href">
             <NuxtLink
               :to="social.href.startsWith('http') ? undefined : social.href"
               :href="social.href.startsWith('http') ? social.href : undefined"
-              class="inline-flex items-center gap-2 rounded-full border border-sky-200/20 px-4 py-2 hover:border-sky-200/40 hover:text-sky-200"
+              class="inline-flex items-center gap-2 rounded-full border border-sky-200/20 px-3 py-2 hover:border-sky-200/40 hover:text-sky-200 sm:px-4"
               target="_blank"
               rel="noreferrer"
             >

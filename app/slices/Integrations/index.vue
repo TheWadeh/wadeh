@@ -72,28 +72,28 @@ onMounted(() => {
 </script>
 
 <template>
-  <Bounded id="approach" class="relative overflow-hidden">
+  <Bounded id="approach" class="relative overflow-hidden px-4 pb-16 pt-10 sm:px-6 md:pb-20">
     <img src="/assets/gradient.png" alt="" class="absolute inset-0 h-full w-full object-cover">
     <GlideLogoFrame class="absolute left-1/2 top-1/2 -translate-x-[50%] -translate-y-1/2 scale-150 opacity-60" />
     <GlideLogoFrame class="absolute left-1/2 top-1/2 -translate-x-[120%] -translate-y-1/3 scale-150 opacity-60" />
     <GlideLogoFrame class="absolute left-1/2 top-1/2 translate-x-[20%] -translate-y-2/3 scale-150 opacity-60" />
 
     <div class="relative">
-      <h2 class="mx-auto max-w-2xl text-balance bg-gradient-to-b from-sky-50 to-sky-300 bg-clip-text py-2 text-center text-5xl font-medium text-transparent md:text-7xl">
+      <h2 class="mx-auto max-w-2xl text-balance bg-gradient-to-b from-sky-50 to-sky-300 bg-clip-text py-2 text-center text-4xl font-medium text-transparent sm:text-5xl md:text-7xl">
         {{ props.section.title }}
       </h2>
-      <p class="mx-auto mt-6 max-w-md text-balance text-center text-gray-300">
+      <p class="mx-auto mt-6 max-w-md text-balance text-center text-sm text-gray-300 sm:text-base">
         {{ props.section.description }}
       </p>
 
-      <div class="mt-20 flex flex-col items-center md:flex-row">
+      <div class="mt-16 flex flex-col items-center gap-6 md:mt-20 md:flex-row">
         <template v-for="(integration, index) in integrations" :key="integration">
           <template v-if="index === Math.floor(integrations.length / 2)">
             <GlideLogoStylized class="pulsing-logo shrink-0 opacity-70 brightness-100 -mt-[42px] -mb-[11px] md:mb-4 md:mt-0 md:-mr-10 md:-ml-7" />
             <div class="signal-line rotate-180" />
           </template>
           <div
-            class="pulsing-icon flex aspect-square shrink-0 items-center justify-center rounded-full border border-sky-50/30 bg-sky-50/25 p-4 text-3xl text-sky-100 opacity-40 md:text-3xl lg:text-5xl"
+            class="pulsing-icon flex aspect-square shrink-0 items-center justify-center rounded-full border border-sky-50/30 bg-sky-50/25 p-4 text-2xl text-sky-100 opacity-40 sm:text-3xl lg:text-5xl"
           >
             <Icon :name="integration" />
           </div>
@@ -111,7 +111,8 @@ onMounted(() => {
 <style scoped>
 .signal-line {
   --rotation: 90deg;
-  @apply h-[20px] w-[1.5px] bg-gradient-to-t md:h-[1.5px] md:w-[30px] lg:w-[40px] xl:w-[50px];
+  height: 20px;
+  width: 1.5px;
   background-color: hsla(0, 0%, 100%, 0.1);
   background-image: linear-gradient(
     var(--rotation),
@@ -120,6 +121,25 @@ onMounted(() => {
     rgba(255, 255, 255, 0) 70%
   );
   background-size: 500% 500%;
+}
+
+@media (min-width: 768px) {
+  .signal-line {
+    height: 1.5px;
+    width: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .signal-line {
+    width: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .signal-line {
+    width: 50px;
+  }
 }
 
 @media (max-width: 767px) {

@@ -51,15 +51,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <Bounded class="relative">
+  <Bounded class="relative px-4 sm:px-6">
     <div
       class="showcase__glow absolute -z-10 aspect-video w-full max-w-2xl rounded-full bg-sky-700 mix-blend-screen blur-[120px] filter"
     />
-    <h2 class="showcase__heading text-balance text-center text-5xl font-medium md:text-7xl">
+    <h2 class="showcase__heading text-balance text-center text-4xl font-medium sm:text-5xl md:text-7xl">
       {{ props.section.heading }}
     </h2>
     <div
-      class="relative mt-16 grid items-start gap-8 rounded-xl border border-sky-50/20 bg-gradient-to-b from-gray-50/15 to-gray-50/5 px-8 py-8 backdrop-blur-sm lg:grid-cols-2 lg:gap-14 lg:py-12"
+      class="relative mt-10 grid items-start gap-8 rounded-xl border border-sky-50/20 bg-gradient-to-b from-gray-50/15 to-gray-50/5 px-6 py-7 backdrop-blur-sm sm:mt-12 sm:px-8 lg:mt-16 lg:grid-cols-2 lg:gap-14 lg:py-12"
     >
       <div class="grid-background" />
       <div :class="props.section.reversed ? 'lg:order-2' : 'lg:order-1'">
@@ -87,7 +87,7 @@ onMounted(() => {
           </div>
           <Icon name="ph:circles-four" class="text-3xl text-sky-200/70" />
         </header>
-        <ul class="grid gap-3 lg:grid-cols-2">
+        <ul class="grid gap-3 sm:grid-cols-2">
           <li
             v-for="point in props.section.points"
             :key="point"

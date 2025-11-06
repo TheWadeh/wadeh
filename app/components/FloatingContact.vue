@@ -79,6 +79,7 @@ const close = () => {
 </template>
 
 <style scoped>
+
 .floating-contact {
   position: fixed;
   inset-inline-end: 1.25rem;

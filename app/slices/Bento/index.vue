@@ -5,22 +5,22 @@ const props = defineProps<{ section: BentoSection }>();
 </script>
 
 <template>
-  <Bounded id="services">
+  <Bounded id="services" class="px-4 sm:px-6">
     <p class="text-sm uppercase tracking-[0.4em] text-sky-200">
       {{ props.section.eyebrow }}
     </p>
-    <h2 class="mt-4 text-center text-4xl font-medium text-white md:text-6xl">
+    <h2 class="mt-4 text-center text-4xl font-medium text-white sm:text-5xl md:text-6xl">
       {{ props.section.title }}
       <span class="italic text-sky-200">{{ props.section.highlight }}</span>
     </h2>
-    <p class="mx-auto mt-6 max-w-2xl text-center text-gray-300">
+    <p class="mx-auto mt-6 max-w-2xl text-center text-sm text-gray-300 sm:text-base">
       {{ props.section.description }}
     </p>
-    <div class="mt-16 grid max-w-4xl grid-rows-[auto_auto_auto] gap-8 md:grid-cols-3 md:gap-10">
+    <div class="mt-12 grid w-full max-w-5xl gap-6 sm:grid-cols-2 md:mt-16 md:grid-cols-3 md:gap-10">
       <article
         v-for="tile in props.section.tiles"
         :key="tile.title"
-        class="glass-container row-span-3 grid grid-rows-subgrid gap-4 rounded-lg bg-gray-950/60 p-6 before:bg-gray-100/10"
+        class="glass-container grid w-full gap-4 rounded-lg bg-gray-950/60 p-6 transition-transform before:bg-gray-100/10 sm:p-7"
         :class="tile.isWide ? 'md:col-span-2' : 'md:col-span-1'"
       >
         <h3 class="text-2xl">{{ tile.title }}</h3>
